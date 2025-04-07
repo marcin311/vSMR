@@ -28,6 +28,18 @@
             ]
         }
     },
+    "cpdlc": {
+        "clrto": "CLR TO",          
+        "rwy": "RWY",               
+        "dep": "DEP",               
+        "initial": "INIT CLB",      
+        "sqwk": "SQUAWK",           
+        "ctot": "CTOT",             
+        "tsat": "TSAT",             
+        "calfreq": "WHEN RDY CALL FREQ",
+        "wrcal": "WHEN READY CALL",
+        "ifunable": "IF UNABLE CALL VOICE"    
+    },
     "labels": {
         "auto_deconfliction": true,
         "leader_line_length": 50,
