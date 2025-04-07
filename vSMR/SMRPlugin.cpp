@@ -203,38 +203,38 @@ void sendDatalinkClearance(void * arg) {
 	messageId++;
 	url += std::to_string(messageId);
 	url += "//R/";
-	url += "CLR TO @";
+	url += CurrentConfig->getActiveProfile()["cpdlc"]["clrto"].GetString() + " @";
 	url += DatalinkToSend.destination;
-	url += "@ RWY @";
+	url += "@ " + CurrentConfig->getActiveProfile()["cpdlc"]["rwy"].GetString() + " @";
 	url += DatalinkToSend.rwy;
-	url += "@ DEP @";
+	url += "@ " + CurrentConfig->getActiveProfile()["cpdlc"]["dep"].GetString() + " @";
 	url += DatalinkToSend.sid;
-	url += "@ INIT CLB @";
+	url += "@ " + CurrentConfig->getActiveProfile()["cpdlc"]["initial"].GetString() + " @";
 	url += DatalinkToSend.climb;
-	url += "@ SQUAWK @";
+	url += "@ " + CurrentConfig->getActiveProfile()["cpdlc"]["sqwk"].GetString() + " @";
 	url += DatalinkToSend.squawk;
 	url += "@ ";
 	if (DatalinkToSend.ctot != "no" && DatalinkToSend.ctot.size() > 3) {
-		url += "CTOT @";
+		url += CurrentConfig->getActiveProfile()["cpdlc"]["ctot"].GetString() + " @";
 		url += DatalinkToSend.ctot;
 		url += "@ ";
 	}
 	if (DatalinkToSend.asat != "no" && DatalinkToSend.asat.size() > 3) {
-		url += "TSAT @";
+		url += CurrentConfig->getActiveProfile()["cpdlc"]["tsat"].GetString() + " @";
 		url += DatalinkToSend.asat;
 		url += "@ ";
 	}
 	if (DatalinkToSend.freq != "no" && DatalinkToSend.freq.size() > 5) {
-		url += "WHEN RDY CALL FREQ @";
+		url += CurrentConfig->getActiveProfile()["cpdlc"]["calfreq"].GetString() + " @";
 		url += DatalinkToSend.freq;
 		url += "@";
 	}
 	else {
-		url += "WHEN RDY CALL @";
+		url += CurrentConfig->getActiveProfile()["cpdlc"]["wrcal"].GetString() + " @";
 		url += myfrequency;
 		url += "@";
 	}
-	url += " IF UNABLE CALL VOICE ";
+	url += " " + CurrentConfig->getActiveProfile()["cpdlc"]["ifunable"].GetString() + " ";
 	if (DatalinkToSend.message != "no" && DatalinkToSend.message.size() > 1)
 		url += DatalinkToSend.message;
 
